@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Guestbook</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h2>Guestbook</h2>
+  <form method="POST" action="/guestbook">
+    Name: <input type="text" name="name">
+    Message: <input type="text" name="message">
+    <input type="submit" value="Post">
+  </form>
+
+  <hr>
+  {% for name, message in messages %}
+    <p><strong>{{ name }}</strong>: {{ message|safe }}</p>
+  {% endfor %}
+</body>
+</html>

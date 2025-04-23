@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Comments</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+        }
+        .comment {
+            padding: 10px;
+            margin-bottom: 10px;
+            background: #fff;
+            border-left: 5px solid #3498db;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <h2>Leave a Comment</h2>
+    <form method="post">
+        <textarea name="comment" rows="4" required></textarea><br><br>
+        <button type="submit">Post Comment</button>
+    </form>
+    <hr>
+    <h3>All Comments:</h3>
+    {% for c in comments %}
+        <div class="comment">{{ c|safe }}</div>
+    {% endfor %}
+    <br><a href="/">← Back to Home</a>
+</body>
+</html>
